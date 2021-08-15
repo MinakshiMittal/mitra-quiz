@@ -1,12 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 import {
   // GettingStarted,
   QuizListingPage,
   QuizDetails,
   DisplayQuestion,
-  AnalysisPage
+  AnalysisPage,
 } from "./Pages";
 import { Routes, Route } from "react-router-dom";
 

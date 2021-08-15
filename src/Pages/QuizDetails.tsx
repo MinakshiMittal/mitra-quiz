@@ -1,13 +1,17 @@
 import { QuizIntroduction } from "./QuizIntroduction";
 import { useParams } from "react-router-dom";
-import { mentalHealthQuizzes } from "../quiz-data";
-import { MentalHealthQuiz } from "../quiz-data.types";
+// import { mentalHealthQuizzes } from "../quiz-data";
+import { Quiz } from "../quiz-data.types";
+import { useQuiz } from "../Context/QuizProvider/QuizProvider";
 
 export const QuizDetails = () => {
   const { quizId } = useParams();
+  const {
+    state: { quizzes },
+  } = useQuiz();
 
-  const quizCategory: MentalHealthQuiz | undefined = mentalHealthQuizzes.find(
-    (quizCategory: MentalHealthQuiz) => quizCategory.id === quizId
+  const quizCategory: Quiz | undefined = quizzes.find(
+    (quizCategory: Quiz) => quizCategory._id === quizId
   );
   return <QuizIntroduction quizCategory={quizCategory} />;
 };

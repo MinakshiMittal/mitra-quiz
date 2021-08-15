@@ -1,22 +1,23 @@
 export type Option = {
-    optionId: string;
-    text: string;
-    isSelected: boolean;
-    points: number;
-  };
-  
-  export type QuizQuestion = {
-    questionId: string;
-    question: string;
-    options: Option[];
-  };
-  
-  export type MentalHealthQuiz = {
-    id: string;
-    quizName: string;
-    quizCoverImage: string;
-    questions: QuizQuestion[];
-  };
-  
-  export type MentalHealthQuizzes = MentalHealthQuiz[];
-  
+  _id: string;
+  text: string;
+  isSelected: boolean;
+  points: number;
+};
+
+export type QuizQuestion = {
+  _id: string;
+  question: string;
+  options: Option[];
+};
+
+export type Quiz = {
+  _id: string;
+  quizName: string;
+  quizCoverImageURL: string;
+  questions: QuizQuestion[];
+};
+
+export type Quizzes = {
+  quizzes: Quiz[];
+};

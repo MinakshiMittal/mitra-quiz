@@ -1,11 +1,14 @@
 import { AnsweredCard } from "../Components";
-import { useQuiz } from "../Context/quiz-context";
+import { useQuiz } from "../Context/QuizProvider/QuizProvider";
 import { useNavigate } from "react-router-dom";
 import { QuizQuestion } from "../quiz-data.types";
 import { Text, Button } from "@chakra-ui/react";
 
 export const AnalysisPage = () => {
-  const { currentQuiz, totalScore, dispatch: quizDispatch } = useQuiz();
+  const {
+    state: { currentQuiz, totalScore },
+    dispatch: quizDispatch,
+  } = useQuiz();
   const navigate = useNavigate();
 
   return (
@@ -18,10 +21,7 @@ export const AnalysisPage = () => {
       </Text>
       {currentQuiz?.map((question: QuizQuestion) => {
         return (
-          <AnsweredCard
-            key={question.questionId}
-            currentQuizQuestion={question}
-          />
+          <AnsweredCard key={question._id} currentQuizQuestion={question} />
         );
       })}
       <Button

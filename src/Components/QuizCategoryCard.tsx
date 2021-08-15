@@ -1,24 +1,31 @@
 import { Box, Image, Flex } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import { mentalHealthQuizzes } from "../quiz-data";
-import { MentalHealthQuiz } from "../quiz-data.types";
+import { Quiz } from "../quiz-data.types";
+import { useQuiz } from "../Context/QuizProvider/QuizProvider";
 
 export const QuizCategoryCard = () => {
   const navigate = useNavigate();
+  const {
+    state: { quizzes },
+  } = useQuiz();
+  console.log("quizzes", quizzes);
   return (
     <Flex>
-      {mentalHealthQuizzes.map((quizCategory: MentalHealthQuiz) => {
+      {quizzes.map((quizCategory: Quiz) => {
         return (
           <Box
-            key={quizCategory.id}
-            onClick={() => navigate(`/quiz/${quizCategory.id}/introduction`)}
+            key={quizCategory._id}
+            onClick={() => navigate(`/quiz/${quizCategory._id}/introduction`)}
             maxW="sm"
             borderWidth="1px"
             borderRadius="lg"
             overflow="hidden"
             padding="1rem"
           >
-            <Image src={quizCategory.quizCoverImage} alt="quiz cover image" />
+            <Image
+              src={quizCategory.quizCoverImageURL}
+              alt="quiz cover image"
+            />
             <Box
               mt="1"
               fontWeight="semibold"

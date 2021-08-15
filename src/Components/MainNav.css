@@ -1,18 +1,17 @@
 .main-nav {
-    position: fixed;
-    color: white;
-    background-color: #1ac6f275;
-    box-shadow: 0.5rem 0.5rem 6rem orange;
-    display: flex;
-    align-items: center;
-  }
-  
-  .hero-name {
-    font-size: 2rem;
-  }
-  
-  .hero-image {
-    width: 6%;
-    margin-top: 0.65rem;
-  }
-  
+  position: fixed;
+  color: white;
+  background-color: #1ac6f275;
+  box-shadow: 0.5rem 0.5rem 6rem orange;
+  display: flex;
+  align-items: center;
+}
+
+.hero-name {
+  font-size: 2rem;
+}
+
+.hero-image {
+  width: 6%;
+  margin-top: 0.65rem;
+}

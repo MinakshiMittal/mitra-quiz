@@ -1,22 +1,29 @@
 import { useParams } from "react-router-dom";
-import { mentalHealthQuizzes } from "../quiz-data";
-import { QuizQuestion, MentalHealthQuiz } from "../quiz-data.types";
+import { QuizQuestion, Quiz } from "../quiz-data.types";
 import { QuestionCard } from "../Components";
-import { useQuiz } from "../Context/quiz-context";
+import { useQuiz } from "../Context/QuizProvider/QuizProvider";
 import { useEffect } from "react";
 
 export const DisplayQuestion = () => {
   const { quizId } = useParams();
-  const { currentQuestionNumber, totalScore } = useQuiz();
+  const {
+    state: { currentQuestionNumber, totalScore },
+  } = useQuiz();
+  const {
+    state: { quizzes },
+  } = useQuiz();
 
-  const quizQuestions: QuizQuestion[] | undefined = mentalHealthQuizzes.find(
-    (quizCategory: MentalHealthQuiz) => quizCategory.id === quizId
+  const quizQuestions: QuizQuestion[] | undefined = quizzes.find(
+    (quizCategory: Quiz) => quizCategory._id === quizId
   )?.questions;
 
   const { dispatch: quizDispatch } = useQuiz();
   useEffect(() => {
-    quizDispatch({ type: "SET_CURRENT_QUIZ", payload: quizQuestions?quizQuestions : []});
-  }, []);
+    quizDispatch({
+      type: "SET_CURRENT_QUIZ",
+      payload: quizQuestions ? quizQuestions : [],
+    });
+  }, [quizDispatch, quizQuestions]);
 
   const currentQuizQuestion: QuizQuestion | undefined = quizQuestions
     ? quizQuestions[currentQuestionNumber]

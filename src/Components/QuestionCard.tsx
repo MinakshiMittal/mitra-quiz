@@ -1,21 +1,24 @@
 import { Box, Button, SimpleGrid } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import { useQuiz } from "../Context/quiz-context";
+import { useQuiz } from "../Context/QuizProvider/QuizProvider";
 import { QuizQuestion } from "../quiz-data.types";
 import "./QuestionCard.css";
 
 type QuestionCardProps = {
-  currentQuizQuestion: QuizQuestion|undefined;
-  quizQuestions: QuizQuestion[]|undefined;
+  currentQuizQuestion: QuizQuestion | undefined;
+  quizQuestions: QuizQuestion[] | undefined;
   quizId: string;
 };
 
 export const QuestionCard = ({
   currentQuizQuestion,
   quizQuestions,
-  quizId
+  quizId,
 }: QuestionCardProps) => {
-  const { dispatch: quizDispatch, currentQuestionNumber } = useQuiz();
+  const {
+    dispatch: quizDispatch,
+    state: { currentQuestionNumber },
+  } = useQuiz();
   const navigate = useNavigate();
   return (
     <Box
@@ -40,24 +43,24 @@ export const QuestionCard = ({
           {currentQuizQuestion?.options.map((option) => {
             return (
               <Button
-                key={option.optionId}
+                key={option._id}
                 className="option"
                 onClick={() => {
                   if (currentQuestionNumber < 3) {
                     quizDispatch({
-                      type: "SET_CURRENT_QUESTION"
+                      type: "SET_CURRENT_QUESTION",
                     });
                   }
                   quizDispatch({
                     type: "SET_CURRENT_QUIZ_TOTAL_SCORE",
-                    payload: option
+                    payload: option,
                   });
                   quizDispatch({
                     type: "SAVE_USERS_ANSWERS",
                     payload: {
                       quizQuestion: currentQuizQuestion,
-                      option: option
-                    }
+                      option: option,
+                    },
                   });
                 }}
               >
@@ -74,7 +77,7 @@ export const QuestionCard = ({
               onClick={() => {
                 if (currentQuestionNumber < 3) {
                   quizDispatch({
-                    type: "SET_CURRENT_QUESTION"
+                    type: "SET_CURRENT_QUESTION",
                   });
                 }
               }}
