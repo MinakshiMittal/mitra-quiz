@@ -1,6 +1,6 @@
 export type Option = {
   _id: string;
-  text: string;
+  option: string;
   isSelected: boolean;
   points: number;
 };

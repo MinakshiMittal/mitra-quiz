@@ -20,6 +20,7 @@ export const QuestionCard = ({
     state: { currentQuestionNumber },
   } = useQuiz();
   const navigate = useNavigate();
+
   return (
     <Box
       maxW="70%"
@@ -46,25 +47,27 @@ export const QuestionCard = ({
                 key={option._id}
                 className="option"
                 onClick={() => {
-                  if (currentQuestionNumber < 3) {
+                  setTimeout(() => {
+                    if (currentQuestionNumber < 3) {
+                      quizDispatch({
+                        type: "SET_CURRENT_QUESTION",
+                      });
+                    }
                     quizDispatch({
-                      type: "SET_CURRENT_QUESTION",
+                      type: "SET_CURRENT_QUIZ_TOTAL_SCORE",
+                      payload: option,
                     });
-                  }
-                  quizDispatch({
-                    type: "SET_CURRENT_QUIZ_TOTAL_SCORE",
-                    payload: option,
-                  });
-                  quizDispatch({
-                    type: "SAVE_USERS_ANSWERS",
-                    payload: {
-                      quizQuestion: currentQuizQuestion,
-                      option: option,
-                    },
-                  });
+                    quizDispatch({
+                      type: "SAVE_USERS_ANSWERS",
+                      payload: {
+                        quizQuestion: currentQuizQuestion,
+                        option: option,
+                      },
+                    });
+                  }, 1500);
                 }}
               >
-                {option.text}
+                {option.option}
               </Button>
             );
           })}

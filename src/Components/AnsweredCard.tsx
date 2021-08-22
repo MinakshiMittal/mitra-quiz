@@ -34,7 +34,7 @@ export const AnsweredCard = ({ currentQuizQuestion }: AnsweredCardProps) => {
                 className="option"
                 colorScheme={option.isSelected ? "blue" : "gray"}
               >
-                {option.text}
+                {option.option}
               </Button>
             );
           })}
