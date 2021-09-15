@@ -24,6 +24,13 @@ export const quizReducer = (state: InitialQuizState, action: QuizAction) => {
         ...state,
         currentQuestionNumber: 0,
         totalScore: 0,
+        currentQuiz: state.currentQuiz?.map((question: QuizQuestion) => {
+          question.options.map((option: Option) => {
+            option.isSelected = false;
+            return option;
+          });
+          return question;
+        }),
       };
 
     case "SET_CURRENT_QUIZ":

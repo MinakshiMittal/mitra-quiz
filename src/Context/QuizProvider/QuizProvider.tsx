@@ -41,7 +41,7 @@ export const QuizProvider = ({ children }: QuizProviderProps) => {
         }
       } catch (error) {
         // dispatch({ type: "FETCH_QUIZZES_ERROR" });
-        console.log();
+        console.log(error);
       }
     })();
   }, [dispatch]);

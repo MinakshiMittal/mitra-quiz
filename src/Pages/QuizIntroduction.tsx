@@ -37,6 +37,13 @@ export const QuizIntroduction = ({ quizCategory }: QuizIntroductionProps) => {
           </span>
           You can answer the question only once.
         </Text>
+        <Text fontSize="md">
+          <span role="img" aria-label="emojis">
+            🧠
+          </span>
+          Each option has different scores and the total score tells about your
+          mental health.
+        </Text>
         <Center>
           <Button
             margin="1rem"

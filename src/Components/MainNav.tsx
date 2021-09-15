@@ -1,21 +1,20 @@
-import { Flex, Spacer, Heading, Button, Image } from "@chakra-ui/react";
+import { Flex, Spacer, Heading, Image } from "@chakra-ui/react";
 import "./MainNav.css";
 import "../global.d.ts";
-import BlackLogo from "../assets/bnw-logo.png";
 
 export const MainNav = () => {
   return (
     <>
       <Flex className="main-nav">
-        <Image src={BlackLogo} alt="logo" className="hero-image" />
-        <Heading size="md" className="hero-name">
-          Mitra
+        <Image
+          src="https://cdn.pixabay.com/photo/2018/04/03/00/48/fingers-3285615_1280.png"
+          alt="logo"
+          className="hero-image"
+        />
+        <Heading size="lg" className="hero-name" fontFamily="Varela Round">
+          Mitra Quiz
         </Heading>
         <Spacer />
-        <Button colorScheme="red" mr="4">
-          Sign Up
-        </Button>
-        <Button colorScheme="red">Log in</Button>
       </Flex>
     </>
   );

@@ -1,4 +1,3 @@
-export { GettingStarted } from "./GettingStarted/GettingStarted";
 export { QuizListingPage } from "./QuizListingPage";
 export { QuizIntroduction } from "./QuizIntroduction";
 export { QuizDetails } from "./QuizDetails";

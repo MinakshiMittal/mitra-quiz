@@ -10,21 +10,26 @@ export const QuizCategoryCard = () => {
   } = useQuiz();
   console.log("quizzes", quizzes);
   return (
-    <Flex>
+    <Flex justifyContent="center" alignItems="center" padding="5rem 0 0 0">
       {quizzes.map((quizCategory: Quiz) => {
         return (
           <Box
             key={quizCategory._id}
             onClick={() => navigate(`/quiz/${quizCategory._id}/introduction`)}
             maxW="sm"
-            borderWidth="1px"
             borderRadius="lg"
             overflow="hidden"
             padding="1rem"
+            flex="45%"
+            maxWidth="45%"
+            margin="1rem"
+            border="3px solid #14a776c9"
+            cursor="pointer"
           >
             <Image
               src={quizCategory.quizCoverImageURL}
               alt="quiz cover image"
+              borderRadius="0.5rem"
             />
             <Box
               mt="1"
@@ -32,6 +37,10 @@ export const QuizCategoryCard = () => {
               as="h4"
               lineHeight="tight"
               isTruncated
+              fontSize="xx-large"
+              fontFamily="Varela Round"
+              textAlign="center"
+              color="#14a776"
             >
               {quizCategory.quizName}
             </Box>

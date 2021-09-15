@@ -1,4 +1,5 @@
 import { Box, Button, SimpleGrid } from "@chakra-ui/react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuiz } from "../Context/QuizProvider/QuizProvider";
 import { QuizQuestion } from "../quiz-data.types";
@@ -20,6 +21,7 @@ export const QuestionCard = ({
     state: { currentQuestionNumber },
   } = useQuiz();
   const navigate = useNavigate();
+  const [disabled, setDisabled] = useState(false);
 
   return (
     <Box
@@ -46,25 +48,21 @@ export const QuestionCard = ({
               <Button
                 key={option._id}
                 className="option"
+                disabled={disabled}
+                colorScheme={option.isSelected ? "blue" : "gray"}
                 onClick={() => {
-                  setTimeout(() => {
-                    if (currentQuestionNumber < 3) {
-                      quizDispatch({
-                        type: "SET_CURRENT_QUESTION",
-                      });
-                    }
-                    quizDispatch({
-                      type: "SET_CURRENT_QUIZ_TOTAL_SCORE",
-                      payload: option,
-                    });
-                    quizDispatch({
-                      type: "SAVE_USERS_ANSWERS",
-                      payload: {
-                        quizQuestion: currentQuizQuestion,
-                        option: option,
-                      },
-                    });
-                  }, 1500);
+                  setDisabled(true);
+                  quizDispatch({
+                    type: "SET_CURRENT_QUIZ_TOTAL_SCORE",
+                    payload: option,
+                  });
+                  quizDispatch({
+                    type: "SAVE_USERS_ANSWERS",
+                    payload: {
+                      quizQuestion: currentQuizQuestion,
+                      option: option,
+                    },
+                  });
                 }}
               >
                 {option.option}
@@ -77,15 +75,17 @@ export const QuestionCard = ({
             <Button
               margin="0 1rem"
               colorScheme="red"
+              borderColor="blue"
               onClick={() => {
                 if (currentQuestionNumber < 3) {
                   quizDispatch({
                     type: "SET_CURRENT_QUESTION",
                   });
                 }
+                setDisabled(false);
               }}
             >
-              Skip
+              Next
             </Button>
           )}
           {currentQuestionNumber === 3 && (

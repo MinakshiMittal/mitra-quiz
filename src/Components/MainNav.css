@@ -1,17 +1,17 @@
 .main-nav {
   position: fixed;
   color: white;
-  background-color: #1ac6f275;
-  box-shadow: 0.5rem 0.5rem 6rem orange;
+  /* background-color: #1ac6f275; */
+  background-color: #14a776;
   display: flex;
   align-items: center;
+  padding: 0.3rem;
 }
 
 .hero-name {
-  font-size: 2rem;
+  margin-left: 0.5rem;
 }
 
 .hero-image {
-  width: 6%;
-  margin-top: 0.65rem;
+  width: 4%;
 }
