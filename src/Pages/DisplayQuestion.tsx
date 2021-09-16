@@ -39,6 +39,7 @@ export const DisplayQuestion = () => {
         color="red"
         whiteSpace="normal"
         fontFamily="Varela Round"
+        marginTop="2rem"
       >
         Total Score: {totalScore}{" "}
       </Text>

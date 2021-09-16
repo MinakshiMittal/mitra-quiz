@@ -26,8 +26,8 @@ export const QuestionCard = ({
 
   return (
     <Box
-      maxW="70%"
-      margin="6rem auto"
+      maxW={isLargerThan600 ? "70%" : "100%"}
+      margin={isLargerThan600 ? "6rem auto" : "2rem auto"}
       borderWidth="1px"
       borderRadius="lg"
       overflow="hidden"
