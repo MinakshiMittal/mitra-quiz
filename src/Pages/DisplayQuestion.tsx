@@ -3,6 +3,7 @@ import { QuizQuestion, Quiz } from "../quiz-data.types";
 import { QuestionCard } from "../Components";
 import { useQuiz } from "../Context/QuizProvider/QuizProvider";
 import { useEffect } from "react";
+import { Text } from "@chakra-ui/react";
 
 export const DisplayQuestion = () => {
   const { quizId } = useParams();
@@ -32,7 +33,15 @@ export const DisplayQuestion = () => {
   return (
     <>
       {/* <div>Timer</div> */}
-      <div>Total Score: {totalScore}</div>
+      <Text
+        fontSize="1.3rem"
+        fontWeight="bolder"
+        color="red"
+        whiteSpace="normal"
+        fontFamily="Varela Round"
+      >
+        Total Score: {totalScore}{" "}
+      </Text>
       <QuestionCard
         currentQuizQuestion={currentQuizQuestion}
         quizQuestions={quizQuestions}

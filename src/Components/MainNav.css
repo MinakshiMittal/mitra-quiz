@@ -15,3 +15,9 @@
 .hero-image {
   width: 4%;
 }
+
+@media (max-width: 600px) {
+  .hero-image {
+    width: 9%;
+  }
+}

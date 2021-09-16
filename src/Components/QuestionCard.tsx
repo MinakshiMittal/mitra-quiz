@@ -1,4 +1,4 @@
-import { Box, Button, SimpleGrid } from "@chakra-ui/react";
+import { Box, Button, SimpleGrid, useMediaQuery } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuiz } from "../Context/QuizProvider/QuizProvider";
@@ -22,6 +22,7 @@ export const QuestionCard = ({
   } = useQuiz();
   const navigate = useNavigate();
   const [disabled, setDisabled] = useState(false);
+  const [isLargerThan600] = useMediaQuery("(min-width:600px)");
 
   return (
     <Box
@@ -39,10 +40,18 @@ export const QuestionCard = ({
           as="h4"
           lineHeight="tight"
           isTruncated
+          whiteSpace="normal"
+          fontSize="1.3rem"
         >
           {currentQuizQuestion?.question}
         </Box>
-        <SimpleGrid columns={2} spacing={10}>
+        <SimpleGrid
+          columns={2}
+          spacing={10}
+          gridTemplateColumns={
+            isLargerThan600 ? "repeat(2, minmax(0, 1fr))" : "none"
+          }
+        >
           {currentQuizQuestion?.options.map((option) => {
             return (
               <Button
@@ -50,6 +59,8 @@ export const QuestionCard = ({
                 className="option"
                 disabled={disabled}
                 colorScheme={option.isSelected ? "blue" : "gray"}
+                whiteSpace="normal"
+                fontSize="1.1rem"
                 onClick={() => {
                   setDisabled(true);
                   quizDispatch({

@@ -5,7 +5,7 @@ import "../global.d.ts";
 export const MainNav = () => {
   return (
     <>
-      <Flex className="main-nav">
+      <Flex className="main-nav" zIndex="1">
         <Image
           src="https://cdn.pixabay.com/photo/2018/04/03/00/48/fingers-3285615_1280.png"
           alt="logo"

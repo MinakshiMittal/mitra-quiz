@@ -5,3 +5,10 @@
 .option :hover {
   background: #11c9fe;
 }
+
+@media (max-width: 600px) {
+  .option-grid {
+    color: orange;
+    grid-template-columns: initial;
+  }
+}
