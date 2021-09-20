@@ -1,6 +1,5 @@
 import { QuizIntroduction } from "./QuizIntroduction";
 import { useParams } from "react-router-dom";
-// import { mentalHealthQuizzes } from "../quiz-data";
 import { Quiz } from "../quiz-data.types";
 import { useQuiz } from "../Context/QuizProvider/QuizProvider";
 

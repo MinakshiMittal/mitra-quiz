@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { QuizQuestion, Quiz } from "../quiz-data.types";
-import { QuestionCard } from "../Components";
+import { MainNav, QuestionCard } from "../Components";
 import { useQuiz } from "../Context/QuizProvider/QuizProvider";
 import { useEffect } from "react";
 import { Text } from "@chakra-ui/react";
@@ -32,14 +32,13 @@ export const DisplayQuestion = () => {
 
   return (
     <>
-      {/* <div>Timer</div> */}
+      <MainNav />
       <Text
         fontSize="1.3rem"
         fontWeight="bolder"
         color="red"
         whiteSpace="normal"
         fontFamily="Varela Round"
-        marginTop="2rem"
       >
         Total Score: {totalScore}{" "}
       </Text>
