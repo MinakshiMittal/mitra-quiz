@@ -1,6 +1,6 @@
 import { Box, Button, SimpleGrid, useMediaQuery } from "@chakra-ui/react";
 import { QuizQuestion } from "../quiz-data.types";
-import "./QuestionCard.css";
+import "../Components/QuestionCard/QuestionCard.css";
 
 type AnsweredCardProps = {
   currentQuizQuestion: QuizQuestion;

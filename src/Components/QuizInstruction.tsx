@@ -9,11 +9,11 @@ import { useNavigate } from "react-router-dom";
 import { Quiz } from "../quiz-data.types";
 import { MainNav } from "../Components";
 
-type QuizIntroductionProps = {
+type QuizInstructionProps = {
   quizCategory: Quiz | undefined;
 };
 
-export const QuizIntroduction = ({ quizCategory }: QuizIntroductionProps) => {
+export const QuizInstruction = ({ quizCategory }: QuizInstructionProps) => {
   const navigate = useNavigate();
   const [isLargerThan600] = useMediaQuery("(min-width:600px)");
 

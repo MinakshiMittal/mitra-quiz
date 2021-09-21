@@ -1,8 +1,8 @@
 import { Box, Button, SimpleGrid, useMediaQuery } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useQuiz } from "../Context/QuizProvider/QuizProvider";
-import { QuizQuestion } from "../quiz-data.types";
+import { useQuiz } from "../../Context/QuizProvider/QuizProvider";
+import { QuizQuestion } from "../../quiz-data.types";
 import "./QuestionCard.css";
 
 type QuestionCardProps = {
@@ -27,7 +27,7 @@ export const QuestionCard = ({
   return (
     <Box
       maxW={isLargerThan600 ? "70%" : "100%"}
-      margin={isLargerThan600 ? "6rem auto" : "2rem auto"}
+      margin={isLargerThan600 ? "4rem auto" : "2rem auto"}
       borderWidth="1px"
       borderRadius="lg"
       overflow="hidden"

@@ -1,7 +1,7 @@
 import { Flex, Spacer, Heading, Image } from "@chakra-ui/react";
 import { useNavigate } from "react-router";
 import "./MainNav.css";
-import "../global.d.ts";
+import "../../global.d.ts";
 
 export const MainNav = () => {
   const navigate = useNavigate();
